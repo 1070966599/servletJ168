@@ -16,7 +16,7 @@ public class TMybaits {
        //SqlSession已经封装了CRUD,我们只需要调用它的方法
        List<TeacherEntity> list=    session.selectList("teacher.selectTeacher");
         for (TeacherEntity t:list) {
-            System.out.printf(t.getTeacherName());
+            System.out.printf(t.getTeacherName()+t.getTeacherClass());
         }
         session.close();
     }
