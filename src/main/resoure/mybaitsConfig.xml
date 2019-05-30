@@ -5,6 +5,7 @@
     <!-- 别名-->
      <typeAliases>
          <package name="com.lovo.servlet.mybaits.entity"></package>
+
      </typeAliases>
     <environments default="development">
         <environment id="development">

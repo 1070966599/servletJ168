@@ -24,4 +24,24 @@
         select  teacher_id  ,teacher_name ,teacher_class from sys_teacher
         where teacher_name=#{teacherName} and teacher_class=#{teacherClass}
     </select>
+    <select id="selectTeacher4" resultMap="teacherMapId" parameterType="teacherEntity">
+        select  teacher_id  ,teacher_name ,teacher_class from sys_teacher
+        where teacher_name like concat("%",#{teacherName},"%")
+    </select>
+
+    <select id="countTeacher" resultType="int">
+        select count(teacher_id) from sys_teacher
+    </select>
+
+    <insert id="savaTeacher"  useGeneratedKeys="true" keyProperty="teacherId" parameterType="teacherEntity">
+        insert into sys_teacher(teacher_name,teacher_class)values(#{teacherName},#{teacherClass})
+    </insert>
+
+    <update id="updateTeacher" parameterType="teacherEntity">
+        update sys_teacher set teacher_name=#{teacherName} where teacher_id=#{teacherId}
+    </update>
+
+    <delete id="delTeacher" parameterType="teacherEntity">
+        delete  from sys_teacher where teacher_id=#{teacherId}
+    </delete>
 </mapper>
