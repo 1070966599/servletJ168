@@ -27,6 +27,11 @@ public class GetSession {
         }
         //用建造者设计模式创建了一个SqlSessionFactory.
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        try {
+            inputStream.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     //获得一个Session，链接
     public static SqlSession creatSession(){

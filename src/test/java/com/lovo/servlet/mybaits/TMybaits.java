@@ -14,10 +14,19 @@ public class TMybaits {
         //获得session
        SqlSession session= GetSession.creatSession();
        //SqlSession已经封装了CRUD,我们只需要调用它的方法
-       List<TeacherEntity> list=    session.selectList("teacher.selectTeacher");
+       List<TeacherEntity> list=    session.selectList("teacher.selectTeacher2");
         for (TeacherEntity t:list) {
             System.out.printf(t.getTeacherName()+t.getTeacherClass());
         }
         session.close();
+    }
+    @Test
+    public  void findTeacher(){
+        SqlSession session= GetSession.creatSession();
+        TeacherEntity t=new TeacherEntity();
+        t.setTeacherName("陈老师");
+        t.setTeacherClass("J168");
+      TeacherEntity t2=  session.selectOne("teacher.selectTeacher3",t);
+        System.out.printf(t2.getTeacherName()+"/"+t2.getTeacherId());
     }
 }
