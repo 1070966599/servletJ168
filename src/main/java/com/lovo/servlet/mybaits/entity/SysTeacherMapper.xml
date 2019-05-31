@@ -6,4 +6,6 @@
         insert into sys_teacher(t_id, t_name,t_class)
         values(#{tId},#{tName},#{tClass})
     </insert>
+
+
 </mapper>

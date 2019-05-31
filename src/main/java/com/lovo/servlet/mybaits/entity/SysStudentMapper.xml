@@ -2,10 +2,44 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lovo.servlet.mybaits.dao.ISysStudentDao">
 
+    <sql id="studentAndteachr">
+        s.s_id,s.s_name,s.s_score,t.t_id,t.t_name
+    </sql>
+  <resultMap id="studentMap" type="sysStudent">
+      <id property="sId" column="s_id"></id>
+       <result property="sName" column="s_name"></result>
+      <result property="sScore" column="s_score"></result>
+   <association property="sysTeacher" column="t_id" select="findTeacherById" ></association>
+     <!-- <association property="sysTeacher" column="t_id" javaType="sysTeacher">
+          <id property="tId" column="t_id"></id>
+          <result property="tName" column="t_name"></result>
+          <result property="tClass" column="t_class"></result>
+      </association> -->
+  </resultMap>
+
+    <resultMap id="studentAndTeacherMap" type="com.lovo.servlet.mybaits.dto.StudentAndTeacherDto">
+        <result property="studentName" column="s_name"></result>
+        <result property="teacherName" column="t_name"></result>
+    </resultMap>
+
  <insert id="savaStudent" parameterType="sysStudent">
      insert into sys_student(s_id, t_id, s_name, s_score)
      values(#{sId},#{sysTeacher.tId},#{sName},#{sScore})
  </insert>
 
+     <select id="findStudentByName" resultMap="studentMap">
+       <!--  select <include refid="studentAndteachr"></include> from sys_student s left join sys_teacher t
+         on s.t_id=t.t_id where s.s_name=#{0}  -->
+      select * from sys_student where s_name=#{0}
+     </select>
+
+    <select id="findTeacherById" resultType="sysTeacher">
+         select  t_id tId,t_name tName,t_class tClass from sys_teacher where t_id=#{0}
+    </select>
+
+     <select id="findStudentAndTeacher" resultMap="studentAndTeacherMap">
+         select  s.s_name,t.t_name from sys_student s left join sys_teacher t
+         on s.t_id=t.t_id where s.s_name=#{0}
+     </select>
 
 </mapper>

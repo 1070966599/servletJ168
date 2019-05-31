@@ -3,6 +3,7 @@ package com.lovo.servlet.mybaits;
 import com.lovo.servlet.mybaits.dao.ISysStudentDao;
 import com.lovo.servlet.mybaits.dao.ISysTeacherDao;
 import com.lovo.servlet.mybaits.db.GetSession;
+import com.lovo.servlet.mybaits.dto.StudentAndTeacherDto;
 import com.lovo.servlet.mybaits.entity.SysStudent;
 import com.lovo.servlet.mybaits.entity.SysTeacher;
 import com.lovo.servlet.mybaits.util.GetUUID;
@@ -29,8 +30,8 @@ public class TMany {
         SysTeacher t=new SysTeacher();
 
         t.setTId(GetUUID.createUUID());
-        t.setTName("张老师");
-        t.setTClass(1);
+        t.setTName("陈老师");
+        t.setTClass(2);
         teacherDao.savaTeacher(t);
 
     }
@@ -48,6 +49,18 @@ public class TMany {
         studentDao.savaStudent(s);
     }
     }
+    @Test
+    public void findStudentByName(){
+     SysStudent student=   studentDao.findStudentByName("赵云");
+      String str=  student.getSysTeacher().getTName();
+        System.out.printf(str);
+    }
+    @Test
+    public void findStudentAndTeacher(){
+      StudentAndTeacherDto dto= studentDao.findStudentAndTeacher("赵云");
+        System.out.printf(""+dto.getStudentName()+"/"+dto.getTeacherName());
+    }
+
     @After
     public  void after(){
         session.commit();
