@@ -21,7 +21,12 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/lovo/servlet/mybaits/entity/TeacherMapper2.xml"></mapper>
+     <!--   <mapper resource="com/lovo/servlet/mybaits/entity/TeacherMapper2.xml"></mapper>
         <mapper resource="com/lovo/servlet/mybaits/entity/TeacherMapper.xml"></mapper>
+
+         -->
+        <mapper resource="com/lovo/servlet/mybaits/entity/SysStudentMapper.xml"></mapper>
+        <mapper resource="com/lovo/servlet/mybaits/entity/SysTeacherMapper.xml"></mapper>
+
     </mappers>
 </configuration>
