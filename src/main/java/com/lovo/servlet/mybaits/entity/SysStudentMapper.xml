@@ -39,7 +39,7 @@
 
      <select id="findStudentAndTeacher" resultMap="studentAndTeacherMap">
          select  s.s_name,t.t_name from sys_student s left join sys_teacher t
-         on s.t_id=t.t_id where s.s_name=#{0}
+         on s.t_id=t.t_id
      </select>
 
 </mapper>

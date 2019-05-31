@@ -12,6 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.UUID;
 
 public class TMany {
@@ -57,8 +58,8 @@ public class TMany {
     }
     @Test
     public void findStudentAndTeacher(){
-      StudentAndTeacherDto dto= studentDao.findStudentAndTeacher("赵云");
-        System.out.printf(""+dto.getStudentName()+"/"+dto.getTeacherName());
+     List<StudentAndTeacherDto> dto= studentDao.findStudentAndTeacher();
+        System.out.printf(""+dto.size());
     }
 
     @After

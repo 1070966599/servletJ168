@@ -3,6 +3,8 @@ package com.lovo.servlet.mybaits.dao;
 import com.lovo.servlet.mybaits.dto.StudentAndTeacherDto;
 import com.lovo.servlet.mybaits.entity.SysStudent;
 
+import java.util.List;
+
 public interface ISysStudentDao {
     /**
      * 添加学生
@@ -20,8 +22,8 @@ public interface ISysStudentDao {
 
     /**
      * 根据学生查询出学生教师DTO
-     * @param userName 学生名字
+     *
      * @return  学生教师DTO
      */
-    public StudentAndTeacherDto findStudentAndTeacher(String userName);
+    public List<StudentAndTeacherDto> findStudentAndTeacher();
 }
