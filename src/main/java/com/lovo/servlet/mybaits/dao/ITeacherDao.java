@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface ITeacherDao {
 
-    public TeacherEntity getTeacherEntity(TeacherEntity teacherEntity);
+    public TeacherEntity getTeacherEntity(String userName,String password);
 
     public List<TeacherEntity> getListTeacher();
+
+    public  long savaTeacher(TeacherEntity teacherEntity);
 }

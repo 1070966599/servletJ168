@@ -33,7 +33,7 @@
         select count(teacher_id) from sys_teacher
     </select>
 
-    <insert id="savaTeacher"  useGeneratedKeys="true" keyProperty="teacherId" parameterType="teacherEntity">
+    <insert id="savaTeacher"  useGeneratedKeys="true" keyProperty="teacherId"   parameterType="teacherEntity">
         insert into sys_teacher(teacher_name,teacher_class)values(#{teacherName},#{teacherClass})
     </insert>
 

@@ -21,10 +21,14 @@ public class TMapped {
         TeacherEntity t=new TeacherEntity();
         t.setTeacherName("陈老师");
         t.setTeacherClass("J168");
-        TeacherEntity te=dao.getTeacherEntity(t);
-        System.out.printf(""+te.getTeacherId());
-      List<TeacherEntity> list= dao.getListTeacher();
-        System.out.printf(""+list.size());
+//        long  t1=  dao.savaTeacher(t);
+//        System.out.printf(""+t.getTeacherId());
+//        session.commit();
+
+      TeacherEntity te=dao.getTeacherEntity("陈老师","J168");
+      System.out.printf(""+te.getTeacherId());
+//      List<TeacherEntity> list= dao.getListTeacher();
+//        System.out.printf(""+list.size());
 
     }
 }

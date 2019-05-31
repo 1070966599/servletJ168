@@ -20,9 +20,10 @@
     <select id="getListTeacher" resultMap="teacherMapId" >
         select <include refid="teacherFindSql"></include> from sys_teacher
     </select>
-    <select id="getTeacherEntity" resultMap="teacherMapId" parameterType="teacherEntity">
+    <select id="getTeacherEntity" resultMap="teacherMapId" >
         select  teacher_id  ,teacher_name ,teacher_class from sys_teacher
-        where teacher_name=#{teacherName} and teacher_class=#{teacherClass}
+       <!--  where teacher_name=#{0} and teacher_class=#{1} -->
+        where teacher_name=#{param1} and teacher_class=#{param2}
     </select>
     <select id="selectTeacher4" resultMap="teacherMapId" parameterType="teacherEntity">
         select  teacher_id  ,teacher_name ,teacher_class from sys_teacher
